@@ -280,10 +280,10 @@ class Example(QWidget):
     def closeEvent(self, event):
 
         reply = QMessageBox.question(self, 'Message',
-                    "Are you sure to quit?", QMessageBox.StandardButtons.Yes |
-                    QMessageBox.StandardButtons.No, QMessageBox.StandardButtons.No)
+                    "Are you sure to quit?", QMessageBox.StandardButton.Yes |
+                    QMessageBox.StandardButton.No, QMessageBox.StandardButton.No)
 
-        if reply == QMessageBox.StandardButtons.Yes:
+        if reply == QMessageBox.StandardButton.Yes:
 
             event.accept()
         else:
@@ -304,13 +304,13 @@ if __name__ == '__main__':
 
 ``` python
 reply = QMessageBox.question(self, 'Message',
-                             "Are you sure to quit?", QMessageBox.Yes |
-                             QMessageBox.No, QMessageBox.No)
+                             "Are you sure to quit?", QMessageBox.StandardButton.Yes |
+                             QMessageBox.StandardButton.No, QMessageBox.StandardButton.No)
 ```
 这里创建了一个带有两个按钮的消息框：是和否。第一个参数是标题栏，第二个参数是对话框显示的消息文本，第三个参数是对话框中的按钮组合，最后一个参数是默认选中的按钮。返回值存储在变量 `reply` 中。
 
 ``` python
-if reply == QtGui.QMessageBox.Yes:
+if reply == QtGui.QMessageBox.StandardButton.Yes:
     event.accept()
 else:
     event.ignore()
